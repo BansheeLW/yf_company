@@ -19,6 +19,14 @@ class SearchForm extends BaseFormModel {
     const NAME = 'yf_company';
     const PASS = '123456';
 
+
+    public function rules()
+    {
+        return [
+            [['name','password', 'company_name'], 'string'],
+        ];
+    }
+
     public function login(){
         if(!$this->validate()){
             return false;
