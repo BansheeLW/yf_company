@@ -27,6 +27,7 @@ class AjaxResult extends Model
      */
     public static function json($data, $errorInfo = null) {
     	header('Content-type: application/json; charset=UTF-8');
+    	header('Access-Control-Allow-Origin:*');
     	if (empty($errorInfo)) {
 
     		$r_data ['retCode'] = '0';
