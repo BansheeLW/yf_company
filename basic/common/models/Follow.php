@@ -31,6 +31,7 @@ class Follow extends BaseActiveRecord{
         return self::find()
             ->select(['staff_name','company_name','customer_type','follow_status'])
             ->where(['like','company_name',$company_name])
-            ->limit(10);
+            ->limit(10)
+            ->all();
     }
 }
