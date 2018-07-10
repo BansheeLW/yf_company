@@ -20,6 +20,7 @@ class SearchForm extends BaseFormModel {
     const PASS = '123456';
 
     public function login(){
+        print_r($this->name);print_r($this->password);die;
         if($this->name !== self::NAME || $this->$this->password !== self::PASS){
             return false;
         }

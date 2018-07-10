@@ -15,13 +15,13 @@ class SearchController extends BaseController {
 
     public function actionGetData(){
         $searchForm = new SearchForm();
-        $searchForm->load(Yii::$app->request->post());
+        $searchForm->load(Yii::$app->request->post(),'');
         AjaxResult::json($searchForm->getData(),$searchForm->errorInfo);
     }
 
     public function actionLogin(){
         $searchForm = new SearchForm();
-        $searchForm->load(Yii::$app->request->post());
+        $searchForm->load(Yii::$app->request->post(),'');
         AjaxResult::json($searchForm->login(),$searchForm->errorInfo);
     }
 }
