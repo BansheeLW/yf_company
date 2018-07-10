@@ -32,17 +32,17 @@ class SearchForm extends BaseFormModel {
 
     public function login(){
         if(!$this->validate()){
-            return $this->returnAndSetError(new ErrorInfo(['code'=>'-1']));
+            return $this->returnAndSetError(new ErrorInfo(['code'=>'-1','message'=>'参数错误']));
         }
         if($this->name !== self::NAME || $this->password !== self::PASS){
-            return $this->returnAndSetError(new ErrorInfo(['code'=>'-1']));
+            return $this->returnAndSetError(new ErrorInfo(['code'=>'-1','message'=>'账号或密码错误']));
         }
         return true;
     }
 
     public function getData(){
         if(!$this->validate()){
-            return $this->returnAndSetError(new ErrorInfo(['code'=>'-1']));
+            return $this->returnAndSetError(new ErrorInfo(['code'=>'-1','message'=>'参数错误']));
         }
         $result = Follow::getByCompanyName($this->company_name);
         return $result;
