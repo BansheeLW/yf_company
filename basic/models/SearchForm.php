@@ -17,7 +17,7 @@ class SearchForm extends BaseFormModel {
     public $company_name;
 
     const NAME = 'yf_company';
-    const PASS = '123456';
+    const PASS = '123456ww';
 
 
     public function rules()
