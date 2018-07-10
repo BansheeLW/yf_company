@@ -15,7 +15,7 @@ class SearchController extends BaseController {
 
     public function actionGetData(){
         $searchForm = new SearchForm();
-        $searchForm->load(Yii::$app->request->post(),'');
+        $searchForm->load(Yii::$app->request->get(),'');
         AjaxResult::json($searchForm->getData(),$searchForm->errorInfo);
     }
 
