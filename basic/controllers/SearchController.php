@@ -20,6 +20,7 @@ class SearchController extends BaseController {
     }
 
     public function actionLogin(){
+        print_r('xx');die;
         $searchForm = new SearchForm();
         $searchForm->load(Yii::$app->request->post(),'');
         AjaxResult::json($searchForm->login(),$searchForm->errorInfo);
