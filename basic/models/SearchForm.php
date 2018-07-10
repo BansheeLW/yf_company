@@ -31,7 +31,6 @@ class SearchForm extends BaseFormModel {
         if(!$this->validate()){
             return false;
         }
-        print_r($this->name);die;
         if($this->name !== self::NAME || $this->$this->password !== self::PASS){
             return false;
         }
@@ -39,6 +38,9 @@ class SearchForm extends BaseFormModel {
     }
 
     public function getData(){
+        if(!$this->validate()){
+            return false;
+        }
         $result = Follow::getByCompanyName($this->company_name);
         return $result;
     }
