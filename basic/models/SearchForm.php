@@ -9,6 +9,7 @@
 namespace app\models;
 
 use app\common\models\Follow;
+use app\helpers\error\ErrorInfo;
 
 class SearchForm extends BaseFormModel {
 
@@ -20,6 +21,8 @@ class SearchForm extends BaseFormModel {
     const PASS = 'wujia1314';
 
 
+
+
     public function rules()
     {
         return [
@@ -29,17 +32,17 @@ class SearchForm extends BaseFormModel {
 
     public function login(){
         if(!$this->validate()){
-            return false;
+            return $this->returnAndSetError(new ErrorInfo(['code'=>'-1']));
         }
         if($this->name !== self::NAME || $this->password !== self::PASS){
-            return false;
+            return $this->returnAndSetError(new ErrorInfo(['code'=>'-1']));
         }
         return true;
     }
 
     public function getData(){
         if(!$this->validate()){
-            return false;
+            return $this->returnAndSetError(new ErrorInfo(['code'=>'-1']));
         }
         $result = Follow::getByCompanyName($this->company_name);
         return $result;
