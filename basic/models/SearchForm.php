@@ -17,7 +17,7 @@ class SearchForm extends BaseFormModel {
     public $company_name;
 
     const NAME = 'yf_company';
-    const PASS = '123456ww';
+    const PASS = 'wujia1314';
 
 
     public function rules()
@@ -31,7 +31,7 @@ class SearchForm extends BaseFormModel {
         if(!$this->validate()){
             return false;
         }
-        if($this->name !== self::NAME || $this->$this->password !== self::PASS){
+        if($this->name !== self::NAME || $this->password !== self::PASS){
             return false;
         }
         return true;
