@@ -21,8 +21,8 @@ class SearchForm extends BaseFormModel {
     const PASS = 'wujia1314';
 
     private $areaList = [0=>'', 1=>'宝安区',2=>'罗湖区',3=>'龙华区',4=>'光明区',5=>'南山区',6=>'福田区',7=>'龙岗区',8=>'坪山区',9=>'大鹏区',10=>'盐田区',11=>'东莞',12=>'其他'];
-    private $typeList = [0=>'',1=>'A+：关系非常好的优质客户',2=>'A：关系很好',3=>'B：关系一般',4=>'C：无法跟进',5=>'D：黑名单'];
-    private $statusList = [0=>'',1=>'已签合同',2=>'留/寄合同中',3=>'面谈后待跟进',4=>'已约见面',5=>'已加联系方式'];
+    private static $typeList = [0=>'',1=>'A+：关系非常好的优质客户',2=>'A：关系很好',3=>'B：关系一般',4=>'C：无法跟进',5=>'D：黑名单'];
+    private static $statusList = [0=>'',1=>'已签合同',2=>'留/寄合同中',3=>'面谈后待跟进',4=>'已约见面',5=>'已加联系方式'];
 
 
     public function rules()
@@ -47,8 +47,8 @@ class SearchForm extends BaseFormModel {
             return $this->returnAndSetError(new ErrorInfo(['code'=>'-1','message'=>'参数错误']));
         }
         $result = Follow::getByCompanyName($this->company_name);
-        $result['customer_type'] = $this->typeList[$result['customer_type']];
-        $result['follow_status'] = $this->statusList[$result['follow_status']];
+        $result['customer_type'] = self::$typeList[$result['customer_type']];
+        $result['follow_status'] = self::$statusList[$result['follow_status']];
         return $result;
     }
 }
