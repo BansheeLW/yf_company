@@ -29,9 +29,15 @@ $this->params['breadcrumbs'][] = $this->title;
             'yf_follow_id',
             'staff_name',
             'company_name',
-            'area',
-            'customer_type',
-            //'follow_status',
+            'area' => function($model){
+                return \app\models\SearchForm::$areaList[$model->area];
+            },
+            'customer_type' => function($model){
+                return \app\models\SearchForm::$typeList[$model->customer_type];
+            },
+            'follow_status' => function($model){
+                return \app\models\SearchForm::$statusList[$model->follow_status];
+            },
             //'follow_date',
 
             ['class' => 'yii\grid\ActionColumn'],
