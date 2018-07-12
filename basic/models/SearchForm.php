@@ -47,8 +47,10 @@ class SearchForm extends BaseFormModel {
             return $this->returnAndSetError(new ErrorInfo(['code'=>'-1','message'=>'参数错误']));
         }
         $result = Follow::getByCompanyName($this->company_name);
-        $result['customer_type'] = self::$typeList[intval($result['customer_type'])];
-        $result['follow_status'] = self::$statusList[intval($result['follow_status'])];
+        foreach ($result as &$item) {
+            $item['customer_type'] = self::$typeList[intval($item['customer_type'])];
+            $item['follow_status'] = self::$statusList[intval($item['follow_status'])];
+        }
         return $result;
     }
 }
