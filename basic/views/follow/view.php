@@ -31,28 +31,25 @@ $this->params['breadcrumbs'][] = $this->title;
             'yf_follow_id',
             'staff_name',
             'company_name',
-            'area',
-            'customer_type',
-            'follow_status',
+            [
+                'attribute'=>'area',
+                'value'=>function($model){
+                    return \app\models\SearchForm::$areaList[$model->area];
+                }
+            ],
+            [
+                'attribute'=>'customer_type',
+                'value'=>function($model){
+                    return \app\models\SearchForm::$typeList[$model->customer_type];
+                }
+            ],
+            [
+                'attribute'=>'follow_status',
+                'value'=>function($model){
+                    return \app\models\SearchForm::$statusList[$model->follow_status];
+                }
+            ],
             'follow_date',
-        ],
-        [
-            'attribute'=>'area',
-            'value'=>function($model){
-                return \app\models\SearchForm::$areaList[$model->area];
-            }
-        ],
-        [
-            'attribute'=>'customer_type',
-            'value'=>function($model){
-                return \app\models\SearchForm::$typeList[$model->customer_type];
-            }
-        ],
-        [
-            'attribute'=>'follow_status',
-            'value'=>function($model){
-                return \app\models\SearchForm::$statusList[$model->follow_status];
-            }
         ],
     ]) ?>
 </div>
