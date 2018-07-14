@@ -65,11 +65,12 @@ class FollowController extends Controller
     public function actionCreate()
     {
         $model = new Follow();
-        $model->setAttributes(Yii::$app->request->post('Follow'),false);
-        if ($model->save()) {
-            return $this->redirect(['view', 'id' => $model->yf_follow_id]);
+        if (!empty(Yii::$app->request->post('Follow'))) {
+            $model->setAttributes(Yii::$app->request->post('Follow'),false);
+            if ($model->save()) {
+                return $this->redirect(['view', 'id' => $model->yf_follow_id]);
+            }
         }
-
         return $this->render('create', [
             'model' => $model,
         ]);
@@ -85,9 +86,11 @@ class FollowController extends Controller
     public function actionUpdate($id)
     {
         $model = $this->findModel($id);
-        $model->setAttributes(Yii::$app->request->post('Follow'),false);
-        if ($model->save()) {
-            return $this->redirect(['view', 'id' => $model->yf_follow_id]);
+        if (!empty(Yii::$app->request->post('Follow'))) {
+            $model->setAttributes(Yii::$app->request->post('Follow'),false);
+            if ($model->save()) {
+                return $this->redirect(['view', 'id' => $model->yf_follow_id]);
+            }
         }
 
         return $this->render('update', [
