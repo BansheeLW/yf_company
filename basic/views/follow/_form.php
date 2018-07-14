@@ -18,11 +18,11 @@ use yii\widgets\ActiveForm;
 
     <?= $form->field($model, 'company_name')->textInput(['maxlength' => true]) ?>
 
-    <?= $form->field($model, 'area')->textInput() ?>
+    <?= $form->field($model, 'area')->dropDownList(\app\models\SearchForm::$areaList) ?>
 
-    <?= $form->field($model, 'customer_type')->textInput() ?>
+    <?= $form->field($model, 'customer_type')->dropDownList(\app\models\SearchForm::$typeList) ?>
 
-    <?= $form->field($model, 'follow_status')->textInput() ?>
+    <?= $form->field($model, 'follow_status')->dropDownList(\app\models\SearchForm::$statusList) ?>
 
     <?= $form->field($model, 'follow_date')->textInput(['maxlength' => true]) ?>
 
