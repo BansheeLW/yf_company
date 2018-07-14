@@ -66,7 +66,7 @@ class FollowController extends Controller
     {
         $model = new Follow();
 
-        if ($model->setAttributes(Yii::$app->request->post('Follow')) && $model->save()) {
+        if ($model->setAttributes(Yii::$app->request->post('Follow'),false) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->yf_follow_id]);
         }
 
@@ -86,7 +86,7 @@ class FollowController extends Controller
     {
         $model = $this->findModel($id);
 
-        if ($model->setAttributes(Yii::$app->request->post('Follow')) && $model->save()) {
+        if ($model->setAttributes(Yii::$app->request->post('Follow'),false) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->yf_follow_id]);
         }
 
