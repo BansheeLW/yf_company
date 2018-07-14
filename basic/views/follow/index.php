@@ -24,7 +24,7 @@ $this->params['breadcrumbs'][] = $this->title;
         'dataProvider' => $dataProvider,
         'filterModel' => $searchModel,
         'columns' => [
-            ['class' => 'yii\grid\SerialColumn'],
+            //['class' => 'yii\grid\SerialColumn'],
 
             'yf_follow_id',
             'staff_name',
@@ -44,7 +44,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 'value' => function($model){
                     return \app\models\SearchForm::$statusList[$model->follow_status];},
             ],
-            //'follow_date',
+            'follow_date',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
