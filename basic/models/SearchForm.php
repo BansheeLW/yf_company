@@ -49,6 +49,9 @@ class SearchForm extends BaseFormModel {
 
     public function getData(){
         if(!$this->validate()){
+            if(array_key_exists('version',$this->getFirstErrors())){
+                return $this->returnAndSetError(new ErrorInfo(['code'=>'-1','message'=>'旧版已废弃，请更新客户端版本']));
+            }
             return $this->returnAndSetError(new ErrorInfo(['code'=>'-1','message'=>'参数错误']));
         }
         if($this->version != 'v1.0'){
