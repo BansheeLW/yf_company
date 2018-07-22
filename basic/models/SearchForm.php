@@ -54,7 +54,7 @@ class SearchForm extends BaseFormModel {
             }
             return $this->returnAndSetError(new ErrorInfo(['code'=>'-1','message'=>'参数错误']));
         }
-        if($this->version != 'v1.0'){
+        if($this->version != 'v1.1'){
             return $this->returnAndSetError(new ErrorInfo(['code'=>'-1','message'=>'旧版已废弃，请更新客户端版本']));
         }
         $result = Follow::getByCompanyName($this->company_name);
