@@ -21,6 +21,7 @@ class SearchController extends BaseController {
 
     public function actionLogin(){
         $searchForm = new SearchForm();
+        $searchForm->setScenario(SearchForm::SCENARIO_GET_DATA);
         $searchForm->load(Yii::$app->request->post(),'');
         AjaxResult::json($searchForm->login(),$searchForm->errorInfo);
     }
