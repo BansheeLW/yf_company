@@ -31,11 +31,11 @@ class AjaxResult extends Model
     	if (empty($errorInfo)) {
 
     		$r_data ['retCode'] = '0';
-    		$r_data ['retMsg'] = "";
+    		$r_data ['retMag'] = "";
     		$r_data ['data'] = $data;
     	} else {
     		$r_data ['retCode'] = $errorInfo->code;
-    		$r_data ['retMsg'] = $errorInfo->message;
+    		$r_data ['retMag'] = $errorInfo->message;
     		$r_data ['data'] = $data;
                 try{
                     \Yii::error(Json::encode($errorInfo), 'resultError');
