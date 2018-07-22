@@ -33,7 +33,7 @@ class SearchForm extends BaseFormModel {
     {
         return [
             [['name','password', 'company_name'], 'string'],
-            [['company_name','version'],'on'=>self::SCENARIO_GET_DATA],
+            [['company_name','version'],'required','on'=>self::SCENARIO_GET_DATA],
         ];
     }
 
